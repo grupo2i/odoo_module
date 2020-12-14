@@ -9,4 +9,5 @@ class Rating(models.Model):
     rating= fields.Integer
     comment= fields.Char()
     
-    client= fields.Many2one('music_event.client')      
+    client= fields.Many2one('music_event.client')
+    event= fields.Many2one('music_events.event')
