@@ -4,4 +4,15 @@
 
 from odoo import models
 class User(models.Model):
-    _name='music_events.user'
+    _name='res.users'
+    _inherit='res.users'
+
+    fullName= fields.Char()
+    biography= fields.Char()
+    userStatus= fields.Selection([ ('ENABLED', 'enabled'),('DISABLED', 'disabled')])
+    userPrivilege= fields.Selection([ ('ADMIN', 'admin'),('CLIENT', 'client'),('CLUB', 'club'),('ARTIST', 'artist')])
+  
+    lastAccess= fields.datetime()
+    lastPasswordChange= fields.datetime()
+
+    
