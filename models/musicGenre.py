@@ -5,3 +5,9 @@
 from odoo import models
 class MusicGenre(models.Model):
     _name='music_events.musicGenre'
+    
+    musicGenre= fields.Selection([('POP','pop'),('ROCK', 'rock'),
+    ('REAGGAE', 'reaggae'),('EDM', 'edm'),('TRAP', 'trap'),('RAP', 'rap'),
+    ('INDIE', 'indie'),('REGGAETON', 'reggaeton'),('OTHER', 'other')])
+    
+    artist= fields.One2Many('music_events.artist','musicGenre')
