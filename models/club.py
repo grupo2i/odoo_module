@@ -5,3 +5,10 @@
 from odoo import models
 class Club(models.Model):
     _name='music_events.club'
+    _inherit='res.users'
+    
+    location=fields.Char()
+    phoneNumber=fields.Char()
+    
+    events=fields.One2many('music_events.event', 'club', ondelete='cascade')
+    
