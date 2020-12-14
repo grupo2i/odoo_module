@@ -5,3 +5,8 @@
 from odoo import models
 class Rating(models.Model):
     _name='music_events.rating'
+    
+    rating= fields.Integer
+    comment= fields.Char()
+    
+    client= fields.Many2one('music_event.client')      
