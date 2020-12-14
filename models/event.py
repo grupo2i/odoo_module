@@ -4,4 +4,14 @@
 
 from odoo import models
 class Event(models.Model):
-    _name='music_events.event'
+    _name = 'music_events.event'
+    
+    date= fields.Date(required=True)
+    place= fields.String(required=True)
+    ticketPrice= fields.Float(required=True)
+    description= fields.String(required=True)
+    
+    club= fields.Many2one('music_events.club')
+    artist= fields.Many2many('music_events.artist')
+    client= fields.Many2many('music_events.client')
+    ratings= fields.One2many('music_events.rating', 'event')
