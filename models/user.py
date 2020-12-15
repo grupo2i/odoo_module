@@ -2,7 +2,7 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-from odoo import models
+from odoo import models, fields
 class User(models.Model):
     _name='res.users'
     _inherit='res.users'
