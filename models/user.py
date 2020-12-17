@@ -2,7 +2,7 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-from odoo import models
+from odoo import models,fields,api
 class User(models.Model):
     _name='res.users'
     _inherit='res.users'
@@ -12,7 +12,5 @@ class User(models.Model):
     userStatus= fields.Selection([ ('ENABLED', 'enabled'),('DISABLED', 'disabled')])
     userPrivilege= fields.Selection([ ('ADMIN', 'admin'),('CLIENT', 'client'),('CLUB', 'club'),('ARTIST', 'artist')])
   
-    lastAccess= fields.datetime()
-    lastPasswordChange= fields.datetime()
-
-    
+    lastAccess= fields.Datetime()
+    lastPasswordChange= fields.Datetime()

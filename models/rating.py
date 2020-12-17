@@ -2,11 +2,11 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-from odoo import models
+from odoo import models,fields,api
 class Rating(models.Model):
     _name='music_events.rating'
     
-    rating= fields.Integer
+    rating= fields.Integer()
     comment= fields.Char()
     
     client= fields.Many2one('music_events.client')
