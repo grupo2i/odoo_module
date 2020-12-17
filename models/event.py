@@ -2,14 +2,14 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-from odoo import models
+from odoo import models,fields,api
 class Event(models.Model):
     _name = 'music_events.event'
     
     date= fields.Date(required=True)
-    place= fields.String(required=True)
+    place= fields.Char(required=True)
     ticketPrice= fields.Float(required=True)
-    description= fields.String(required=True)
+    description= fields.Char(required=True)
     
     club= fields.Many2one('music_events.club')
     artist= fields.Many2many('music_events.artist')

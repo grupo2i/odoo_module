@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import models
+from . import artist,client,club,event,rating,socialNetwork,user

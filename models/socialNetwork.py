@@ -2,9 +2,9 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-from odoo import models
-class SocialNetwork(Model.models):
-    _name='music_events.socialNetwork'
+from odoo import models,fields,api
+class SocialNetwork(models.Model):
+    _name='music_events.socialnetwork'
     
     socialNetwork=fields.Char()
     
