@@ -7,6 +7,9 @@ class Artist(models.Model):
     _name='music_events.artist'
     _inherit='res.users'
     
-    musicGenre=fields.Many2one('music_events.musicGenre')
+    musicGenre= fields.Selection([('POP','pop'),('ROCK', 'rock'),
+    ('REAGGAE', 'reaggae'),('EDM', 'edm'),('TRAP', 'trap'),('RAP', 'rap'),
+    ('INDIE', 'indie'),('REGGAETON', 'reggaeton'),('OTHER', 'other')])
+    
     events=fields.Many2many('music_events.event')
     socialNetworks=fields.One2many('music_events.socialNetwork', 'artists')
