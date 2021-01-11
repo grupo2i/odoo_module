@@ -8,4 +8,4 @@ class SocialNetwork(models.Model):
     
     socialNetwork=fields.Char()
     
-    artists=fields.Many2one('music_events.artist')
+    artists=fields.Many2one('res.users')

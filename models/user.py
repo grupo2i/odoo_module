@@ -7,10 +7,15 @@ class User(models.Model):
     _name='res.users'
     _inherit='res.users'
 
-    fullName= fields.Char()
     biography= fields.Char()
-    userStatus= fields.Selection([ ('ENABLED', 'enabled'),('DISABLED', 'disabled')])
     userPrivilege= fields.Selection([ ('ADMIN', 'admin'),('CLIENT', 'client'),('CLUB', 'club'),('ARTIST', 'artist')])
-  
     lastAccess= fields.Datetime()
     lastPasswordChange= fields.Datetime()
+    
+    # Some fields have been replace by existing one in the res.users model:
+    # Our data model ---> res.users
+    # fullName ---> name
+    # userStatus ---> active
+    # login ---> login
+    # email ---> email
+    # profileImage ---> image

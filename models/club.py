@@ -4,11 +4,8 @@
 
 from odoo import models,fields,api
 class Club(models.Model):
-    _name='music_events.club'
+    _name='res.users'
     _inherit='res.users'
     
-    location=fields.Char()
-    phoneNumber=fields.Char()
-    
-    events=fields.One2many('music_events.event', 'club', ondelete='cascade')
+    clubEvents=fields.One2many('music_events.event', 'club', ondelete='cascade')
     
