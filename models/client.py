@@ -4,8 +4,8 @@
 
 from odoo import models,fields,api
 class Client(models.Model):
-    _name='music_events.client'
+    _name='res.users'
     _inherit='res.users'
     
-    events=fields.Many2many('music_events.event')
+    clientEvents=fields.Many2many('music_events.event')
     ratings=fields.One2many('music_events.rating', 'client')

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<odoo>
+    <data>
+        <!-- The following tag is an action definition for a "window action",
+        that is an action opening a view or a set of views -->
+        <record model="ir.actions.act_window"
+                id="event_list_action">
+            <field name="name">Events</field>
+            <field name="res_model">music_events.event</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create the first Event.
+                </p>
+            </field>
+        </record>
+        
+        <!-- The following tag defines a tree view that lists events -->
+        <record model="ir.ui.view" id="event_list">
+            <field name="name">event_list</field>
+            <field name="model">music_events.event</field>
+            <field name="arch" type="xml">
+                <tree string="Events">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="ticketPrice"/>
+                    <field name="place"/>
+                    <field name="date"/>
+                    <field name="club"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="event_form">
+            <field name="name">event_form</field>
+            <field name="model">music_events.event</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div>
+                        <laber for="name" string="Name"/>
+                        <h1><field name="name" placeholder="Event name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="place"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="ticketPrice"/>
+                            <field name="club"></field>
+                        </group>
+                    </group>
+                    
+                    <notebook colspan="4">
+                        <page name="description" string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page name="artists" string="Artists">
+                            <field name="artists">
+                                <tree string="Artists">
+                                    <field name="id"/>
+                                    <field name="name"/>
+                                    <field name="login"/>
+                                    <field name="email"/>
+                                    <field name="musicGenre"/>
+                                    <field name="biography"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="clients" string="Clients">
+                            <field name="clients">
+                                <tree string="Clients">
+                                    <field name="id"/>
+                                    <field name="name"/>
+                                    <field name="login"/>
+                                    <field name="email"/>
+                                    <field name="biography"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="eventRatings" string="Ratings">
+                            <field name="ratings">
+                                <tree string="Ratings">
+                                    <field name="client"></field>
+                                    <field name="rating"/>
+                                    <field name="comment"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        
+        <!-- The following tag defines a search view that lists events -->
+        <record model="ir.ui.view" id="event_search_view">
+            <field name="name">event.search</field>
+            <field name="model">music_events.event</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="place"/>
+                    <field name="date"/>
+                    <field name="ticketPrice"/>
+                    <field name="club"></field>
+                </search>
+            </field>
+        </record>
+        
+        <!-- Header menu item -->
+        <menuitem id="main_musicevents_menu" name="Music Events"/>
+        <!-- Aside menu first level menu item
+        needed before using action = attribute -->
+        <menuitem id="musicevents_menu"
+                  name="Music Events"
+                  parent="main_musicevents_menu"/>
+        <!-- Menu item with the action event_list_action -->
+        <menuitem id="events_menu"
+                  name="Events"
+                  parent="musicevents_menu"
+                  action="event_list_action"/>
+    </data>
+</odoo>
