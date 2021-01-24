@@ -12,7 +12,16 @@ class Event(models.Model):
     ticketPrice= fields.Float(required=True)
     description= fields.Text(required=True)
     
-    club= fields.Many2one('res.users')
-    artists= fields.Many2many('res.users')
-    clients= fields.Many2many('res.users')
+    club= fields.Many2one('res.users', domain=[('userPrivilege', '=', 'CLUB')])
+    artists= fields.Many2many('res.users', domain=[('userPrivilege', '=', 'ARTIST')])
+    clients= fields.Many2many('res.users', domain=[('userPrivilege', '=', 'ADMIN')])
     ratings= fields.One2many('music_events.rating', 'event')
+    
+    
+    from odoo.exceptions import ValidationError
+    @api.constrains('ticketPrice')
+    def _check_ticket_price_not_negative(self):
+        for r in self:
+            if r.ticketPrice < 0:
+                raise exceptions.ValidationError(_("Ticket price must be a positive number."))
+            

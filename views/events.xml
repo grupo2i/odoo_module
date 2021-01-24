@@ -6,21 +6,6 @@ and open the template in the editor.
 -->
 <odoo>
     <data>
-        <!-- The following tag is an action definition for a "window action",
-        that is an action opening a view or a set of views -->
-        <record model="ir.actions.act_window"
-                id="event_list_action">
-            <field name="name">Events</field>
-            <field name="res_model">music_events.event</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">
-                    Create the first Event.
-                </p>
-            </field>
-        </record>
-        
         <!-- The following tag defines a tree view that lists events -->
         <record model="ir.ui.view" id="event_list">
             <field name="name">event_list</field>
@@ -38,6 +23,7 @@ and open the template in the editor.
             </field>
         </record>
         
+        <!-- The following tag defines a form view used to register events -->
         <record model="ir.ui.view" id="event_form">
             <field name="name">event_form</field>
             <field name="model">music_events.event</field>
@@ -99,12 +85,13 @@ and open the template in the editor.
             </field>
         </record>
         
-        <!-- The following tag defines a search view that lists events -->
+        <!-- The following tag defines a search view for events -->
         <record model="ir.ui.view" id="event_search_view">
-            <field name="name">event.search</field>
+            <field name="name">event_search</field>
             <field name="model">music_events.event</field>
             <field name="arch" type="xml">
                 <search>
+                    <field name="id"/>
                     <field name="name"/>
                     <field name="place"/>
                     <field name="date"/>
@@ -114,17 +101,6 @@ and open the template in the editor.
             </field>
         </record>
         
-        <!-- Header menu item -->
-        <menuitem id="main_musicevents_menu" name="Music Events"/>
-        <!-- Aside menu first level menu item
-        needed before using action = attribute -->
-        <menuitem id="musicevents_menu"
-                  name="Music Events"
-                  parent="main_musicevents_menu"/>
-        <!-- Menu item with the action event_list_action -->
-        <menuitem id="events_menu"
-                  name="Events"
-                  parent="musicevents_menu"
-                  action="event_list_action"/>
+        
     </data>
 </odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<odoo>
+    <data>
+        <!-- The following tag defines a tree view that lists ratings -->
+        <record model="ir.ui.view" id="rating_list">
+            <field name="name">rating_list</field>
+            <field name="model">music_events.rating</field>
+            <field name="arch" type="xml">
+                <tree string="Ratings">
+                    <field name="id"/>
+                    <field name="event"/>
+                    <field name="client"/>
+                    <field name="rating"/>
+                    <field name="comment"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- The following tag defines a search view for ratings -->
+        <record model="ir.ui.view" id="rating_search_view">
+            <field name="name">rating_search</field>
+            <field name="model">music_events.rating</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="id"/>
+                    <field name="rating"/>
+                    <field name="comment"/>
+                    <field name="event"></field>
+                    <field name="client"></field>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>
