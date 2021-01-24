@@ -28,7 +28,7 @@
         'views/templates.xml',
         'views/ratings.xml',
         'views/events.xml',
-        'eventReport'
+        'eventReport.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

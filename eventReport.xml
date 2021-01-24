@@ -6,6 +6,70 @@ and open the template in the editor.
 -->
 
 
-<root>
-    
-</root>
+<odoo>
+    <data>
+        <report
+            id="event_report"
+            model="music_events.event"
+            string="Event Report"
+            report_type="qweb-pdf"
+            name="music_events.event_report_view"
+            file="music_events.event_report"/>
+        
+        <template id="event_report_view">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <br/><br/><br/><br/>
+                            <p>
+                                <h2 t-field="doc.name"/>
+                            </p>
+                            <t t-set="club" t-value="doc.club"/>
+                            <div>
+                                <div>
+                                    <p><h3>Event Data:</h3></p>
+                                    <ul>
+                                        <li>Name: <span t-field="doc.name"/></li>
+                                        <li>Place: <span t-field="doc.place"/></li>
+                                        <li>Date: <span t-field="doc.date"/></li>
+                                        <li>Ticket price: <span t-field="doc.ticketPrice"/></li>
+                                        <li>Description: <p><span t-field="doc.description"/></p></li>
+                                    </ul>
+                                </div> 
+                                <div>
+                                    <p><h3>Club (owner):</h3></p>
+                                    <ul>
+                                        <li>Name: <span t-field="club.name"/></li>
+                                        <li>Email: <span t-field="club.email"/></li>
+                                        <li>Phone number: <span t-field="club.phone"/></li>
+                                    </ul>
+                                </div>  
+                            </div>
+                            <div>
+                                <t t-set="rating" t-value="doc.club"/>
+                                <p>
+                                    <h3>User Ratings:</h3>
+                                </p>
+                                <table class="table table-condensed table-bordered">
+                                    <tr>
+                                        <th style="width: 25%">USER</th>
+                                        <th style="width: 25%">RATING</th>
+                                        <th style="width: 60%">COMMENT</th>
+                                    </tr>
+                                    <t t-foreach="doc.ratings" t-as="rating">
+                                        <tr>
+                                            <td><sapn t-field="rating.client.name"/></td>
+                                            <td><sapn t-field="rating.rating"/></td>
+                                            <td><sapn t-field="rating.comment"/></td>
+                                        </tr>
+                                    </t>
+                                </table>
+                            </div>    
+                        </div>
+                    </t>    
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
