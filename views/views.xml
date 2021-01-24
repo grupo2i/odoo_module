@@ -1,5 +1,60 @@
 <odoo>
   <data>
+        <!-- Action that opens a tree and a form view for managing ratings -->
+        <record model="ir.actions.act_window"
+                id="ratings_list_action">
+            <field name="name">Ratings</field>
+            <field name="res_model">music_events.rating</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create the first Rating.
+                </p>
+            </field>
+        </record>
+      
+        <!-- Action that opens a tree and a form view for managing events -->
+        <record model="ir.actions.act_window"
+                id="events_list_action">
+            <field name="name">Events</field>
+            <field name="res_model">music_events.event</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create the first Event.
+                </p>
+            </field>
+        </record>
+        
+        
+        <!-- Header menu item -->
+        <menuitem id="musicevents_menu" name="Music Events"/>
+        
+        <!-- Aside menu first level menu item
+        needed before using action = attribute -->
+        <menuitem id="musicevents_events_menu"
+                  name="Event Management"
+                  parent="musicevents_menu"/>
+        <!-- Menu item with the action event_list_action -->
+        <menuitem id="musicevents_events_event_menuitem"
+                  name="Events"
+                  parent="musicevents_events_menu"
+                  action="events_list_action"/>
+        
+        <!-- Aside menu first level menu item
+        needed before using action = attribute -->
+        <menuitem id="musicevents_ratings_menu"
+                  name="Ratings Management"
+                  parent="musicevents_menu"/>
+        <!-- Menu item with the action ratings_list_action -->
+        <menuitem id="musicevents_ratings_rating_menuitem"
+                  name="Ratings"
+                  parent="musicevents_ratings_menu"
+                  action="ratings_list_action"/>
+        
+        
     <!-- explicit list view definition -->
     <!--
     <record model="ir.ui.view" id="music_events.list">
