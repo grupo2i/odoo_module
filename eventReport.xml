@@ -47,7 +47,6 @@ and open the template in the editor.
                                 </div>  
                             </div>
                             <div>
-                                <t t-set="rating" t-value="doc.club"/>
                                 <p>
                                     <h3>User Ratings:</h3>
                                 </p>
@@ -59,9 +58,9 @@ and open the template in the editor.
                                     </tr>
                                     <t t-foreach="doc.ratings" t-as="rating">
                                         <tr>
-                                            <td><sapn t-field="rating.client.name"/></td>
-                                            <td><sapn t-field="rating.rating"/></td>
-                                            <td><sapn t-field="rating.comment"/></td>
+                                            <td><span t-field="rating.client.name"/></td>
+                                            <td><span t-field="rating.rating"/></td>
+                                            <td><span t-field="rating.comment"/></td>
                                         </tr>
                                     </t>
                                 </table>

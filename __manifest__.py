@@ -28,7 +28,9 @@
         'views/templates.xml',
         'views/ratings.xml',
         'views/events.xml',
-        'eventReport.xml'
+        'eventReport.xml',
+        'security/securityGroups.xml',
+        'security/ir.model.access.csv'
     ],
     # only loaded in demonstration mode
     'demo': [
