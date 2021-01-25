@@ -3,6 +3,8 @@
 # and open the template in the editor.
 
 from odoo import models,fields,api
+from odoo.exceptions import ValidationError
+
 class Rating(models.Model):
     _name='music_events.rating'
     
@@ -13,9 +15,8 @@ class Rating(models.Model):
     event= fields.Many2one('music_events.event')
     
     
-    from odoo.exceptions import ValidationError
     @api.constrains('rating')
     def _check_rating_range(self):
         for r in self:
             if r.rating > 5 or r.rating < 1:
-                raise exceptions.ValidationError(_("Rating must be a value betwen 1 and 5."))
+                raise ValidationError("Rating must be a value betwen 1 and 5.")

@@ -3,6 +3,8 @@
 # and open the template in the editor.
 
 from odoo import models,fields,api
+from odoo.exceptions import ValidationError
+
 class Event(models.Model):
     _name = 'music_events.event'
     
@@ -18,10 +20,9 @@ class Event(models.Model):
     ratings= fields.One2many('music_events.rating', 'event')
     
     
-    from odoo.exceptions import ValidationError
     @api.constrains('ticketPrice')
     def _check_ticket_price_not_negative(self):
         for r in self:
             if r.ticketPrice < 0:
-                raise exceptions.ValidationError(_("Ticket price must be a positive number."))
+                raise ValidationError("Ticket price must be a positive number.")
             
