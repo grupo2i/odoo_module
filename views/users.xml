@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="user_form">
+            <field name="name">user_form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_simple_form"/>
+            <field name="arch" type="xml">
+                <field name="fax" position="after">
+                    <notebook colspan="2">
+                        <page name="musicEvents" string="Music Events">
+                            <group>
+                                <field name="userPrivilege"/>
+                                <field name="musicGenre" 
+                                       attrs="{'invisible': [('userPrivilege', '!=', 'ARTIST')]}"/>
+                                <field name="biography"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

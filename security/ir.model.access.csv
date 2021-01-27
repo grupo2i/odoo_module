@@ -2,8 +2,9 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_rating_artist,access_rating_artist,model_music_events_rating,artist,1,0,0,0
 access_rating_client,access_rating_client,model_music_events_rating,client,1,0,1,0
 access_rating_club,access_rating_club,model_music_events_rating,club,1,0,0,0
-access_rating_admin,access_rating_admin,model_music_events_rating,admin,1,1,1,1
+access_rating_admin,access_rating_admin,model_music_events_rating,admin,1,0,0,1
 access_event_artist,access_event_artist,model_music_events_event,artist,1,0,0,0
 access_event_client,access_event_client,model_music_events_event,client,1,0,0,0
-access_event_club,access_event_club,model_music_events_event,club,1,1,1,1
-access_event_admin,access_event_admin,model_music_events_event,admin,1,1,1,1
+access_event_club,access_event_club,model_music_events_event,club,1,0,1,0
+access_event_admin,access_event_admin,model_music_events_event,admin,1,1,0,1
+access_user_admin,access_user_admin,model_res_users,admin,1,1,1,1

@@ -7,7 +7,7 @@ class User(models.Model):
     _name='res.users'
     _inherit='res.users'
 
-    biography= fields.Char()
+    biography= fields.Text()
     # Selection fieds are given as a pair like (value, label).
     userPrivilege= fields.Selection([ ('ADMIN', 'admin'),('CLIENT', 'client'),('CLUB', 'club'),('ARTIST', 'artist')])
     lastAccess= fields.Datetime()

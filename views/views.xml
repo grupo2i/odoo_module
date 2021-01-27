@@ -1,5 +1,19 @@
 <odoo>
   <data>
+      <!-- Action that opens a tree and a form view for managing events -->
+        <record model="ir.actions.act_window"
+                id="events_list_action">
+            <field name="name">Events</field>
+            <field name="res_model">music_events.event</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create the first Event.
+                </p>
+            </field>
+        </record>
+        
         <!-- Action that opens a tree and a form view for managing ratings -->
         <record model="ir.actions.act_window"
                 id="ratings_list_action">
@@ -16,14 +30,14 @@
       
         <!-- Action that opens a tree and a form view for managing events -->
         <record model="ir.actions.act_window"
-                id="events_list_action">
-            <field name="name">Events</field>
-            <field name="res_model">music_events.event</field>
+                id="users_list_action">
+            <field name="name">Users</field>
+            <field name="res_model">res.users</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
-                    Create the first Event.
+                    Create the first User.
                 </p>
             </field>
         </record>
@@ -53,6 +67,17 @@
                   name="Ratings"
                   parent="musicevents_ratings_menu"
                   action="ratings_list_action"/>
+        
+        <!-- Aside menu first level menu item
+        needed before using action = attribute -->
+        <menuitem id="musicevents_users_menu"
+                  name="Users Management"
+                  parent="musicevents_menu"/>
+        <!-- Menu item with the action ratings_list_action -->
+        <menuitem id="musicevents_users_user_menuitem"
+                  name="Users"
+                  parent="musicevents_users_menu"
+                  action="users_list_action"/>
         
         
     <!-- explicit list view definition -->
