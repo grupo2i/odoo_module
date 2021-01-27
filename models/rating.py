@@ -9,11 +9,12 @@ class Rating(models.Model):
     _name='music_events.rating'
     
     rating= fields.Integer(required=True)
-    comment= fields.Char()
+    comment= fields.Text()
     
-    client= fields.Many2one('res.users', domain=[('userPrivilege', '=', 'CLIENT')])
+    client= fields.Many2one('res.users', domain=[('userPrivilege', '=', 'CLIENT')],
+                    default=lambda self: self.env.user)
     event= fields.Many2one('music_events.event')
-    
+                    
     
     @api.constrains('rating')
     def _check_rating_range(self):

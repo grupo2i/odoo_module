@@ -21,6 +21,29 @@ and open the template in the editor.
             </field>
         </record>
         
+        <record model="ir.ui.view" id="rating_form">
+            <field name="name">rating_form</field>
+            <field name="model">music_events.rating</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="client" 
+                                   attrs="{'readonly': True}">
+                            </field>
+                        </group>
+                        <group>
+                            <field name="event"></field>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="rating"/>
+                        <field name="comment"/>
+                    </group>
+                </form>
+            </field>    
+        </record>
+        
         <!-- The following tag defines a search view for ratings -->
         <record model="ir.ui.view" id="rating_search_view">
             <field name="name">rating_search</field>

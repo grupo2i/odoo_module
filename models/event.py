@@ -14,9 +14,10 @@ class Event(models.Model):
     ticketPrice= fields.Float(required=True)
     description= fields.Text(required=True)
     
-    club= fields.Many2one('res.users', domain=[('userPrivilege', '=', 'CLUB')])
+    club= fields.Many2one('res.users', domain=[('userPrivilege', '=', 'CLUB')],
+                    default=lambda self: self.env.user)
     artists= fields.Many2many('res.users', domain=[('userPrivilege', '=', 'ARTIST')])
-    clients= fields.Many2many('res.users', domain=[('userPrivilege', '=', 'ADMIN')])
+    clients= fields.Many2many('res.users', domain=[('userPrivilege', '=', 'CLIENT')])
     ratings= fields.One2many('music_events.rating', 'event')
     
     

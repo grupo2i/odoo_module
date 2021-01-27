@@ -28,6 +28,7 @@
         'views/templates.xml',
         'views/ratings.xml',
         'views/events.xml',
+        'views/users.xml',
         'eventReport.xml',
         'security/securityGroups.xml',
         'security/ir.model.access.csv'
