@@ -2,6 +2,7 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+# Ander Vicente
 from odoo import models,fields,api
 class Club(models.Model):
     _name='res.users'

@@ -2,6 +2,7 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
+# Martín Angulo
 from odoo import models,fields,api
 class Client(models.Model):
     _name='res.users'
