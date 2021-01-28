@@ -11,7 +11,6 @@ class User(models.Model):
     biography= fields.Text()
     # Selection fieds are given as a pair like (value, label).
     userPrivilege= fields.Selection([ ('ADMIN', 'admin'),('CLIENT', 'client'),('CLUB', 'club'),('ARTIST', 'artist')])
-    lastAccess= fields.Datetime()
     lastPasswordChange= fields.Datetime()
     
     # Some fields have been replace by existing one in the res.users model:
