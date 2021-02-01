@@ -5,6 +5,7 @@
 # Martin Angulo
 from odoo import models,fields,api
 from odoo.exceptions import ValidationError
+from datetime import datetime
 
 class Event(models.Model):
     _name = 'music_events.event'
@@ -21,10 +22,21 @@ class Event(models.Model):
     clients= fields.Many2many('res.users', domain=[('userPrivilege', '=', 'CLIENT')])
     ratings= fields.One2many('music_events.rating', 'event')
     
-    
     @api.constrains('ticketPrice')
     def _check_ticket_price_not_negative(self):
         for r in self:
             if r.ticketPrice < 0:
                 raise ValidationError("Ticket price must be a positive number.")
             
+    @api.constrains('date')
+    def _check_date_not_before(self):
+        if datetime.strptime(self.date, "%Y-%m-%d") < datetime.today():
+            raise ValidationError("Event date must be after current date.")
+        
+    @api.onchange('name')
+    def _on_change_name(self):
+        if(self.name):
+            for i, c in enumerate(self.name):
+                if i == 0:
+                    if not c.isalpha():
+                        return { 'warning': {'title': "Warning", 'message': "Event name must start with a letter"},}
