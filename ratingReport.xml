@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<odoo>
+    <data>
+        <report
+            id="rating_report"
+            model="music_events.rating"
+            string="Rating Report"
+            report_type="qweb-pdf"
+            name="music_events.rating_report_view"
+            file="music_events.rating_report"/>
+        
+        <template id="rating_report_view">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <br/><br/><br/><br/><br/><br/>
+                            <ul>
+                                <li>Event: <span t-field="doc.event.name"/></li>
+                                <li>Rating: <span t-field="doc.rating"/></li>
+                                <li>Comment: <span t-field="doc.comment"/></li>
+                            </ul>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

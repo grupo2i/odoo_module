@@ -30,6 +30,7 @@
         'views/events.xml',
         'views/users.xml',
         'eventReport.xml',
+        'ratingReport.xml',
         'security/securityGroups.xml',
         'security/ir.model.access.csv'
     ],
